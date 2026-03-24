@@ -13,7 +13,7 @@ const {spawn} = require('child_process');
 const app = express();
 const bcryptSalt =  bcrypt.genSaltSync(10);
 const jwtSecret = process.env.JWT_SECRET || 'change-me';
-const APIkey = 'd19a1eac74129a54df64265af607e433';
+const APIkey = process.env.OPENWEATHER_API_KEY || '';
 
 
 let chartDataTemp = [];
