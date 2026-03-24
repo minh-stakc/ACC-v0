@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const path = require('path');
@@ -11,7 +12,7 @@ const { default: axios } = require("axios");
 const {spawn} = require('child_process');
 const app = express();
 const bcryptSalt =  bcrypt.genSaltSync(10);
-const jwtSecret = 'f8u230f20u203f20i3o';
+const jwtSecret = process.env.JWT_SECRET || 'change-me';
 const APIkey = 'd19a1eac74129a54df64265af607e433';
 
 
@@ -22,7 +23,6 @@ let chartDataNito = [];
 let chartDataPhotpho = [];
 let chartDataKali = [];
 
-require("dotenv").config();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
